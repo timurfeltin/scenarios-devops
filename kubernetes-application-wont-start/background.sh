@@ -1,2 +1,2 @@
 #!/bin/bash
-k create ns production
+kubectl create ns production
