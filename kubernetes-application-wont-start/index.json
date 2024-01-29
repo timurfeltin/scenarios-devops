@@ -9,7 +9,8 @@
     "steps": [
       {
         "title": "Fix the problem with deployment",
-        "text": "step1.md"
+        "text": "step1.md",
+        "background": "background.sh"
       }
     ],
     "finish": {
