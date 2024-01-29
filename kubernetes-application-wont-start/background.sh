@@ -23,5 +23,11 @@ spec:
           image: httpd:latest
           ports:
             - containerPort: 80
+          env:
+            - name: TEST_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: config
 
 EOF
