@@ -1,0 +1,23 @@
+{
+  "title": "Ubuntu has no network connectivity",
+  "description": "This is a test",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "steps": [
+      {
+        "title": "Fix the problem with network",
+        "text": "step1.md",
+        "background": "background.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
