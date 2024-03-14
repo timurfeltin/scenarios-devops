@@ -1,0 +1,23 @@
+{
+  "title": "Kubernetes app wont start",
+  "description": "This is a test",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "steps": [
+      {
+        "title": "Fix the problem with deployment",
+        "text": "step1.md",
+        "background": "background.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
