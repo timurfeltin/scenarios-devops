@@ -9,7 +9,7 @@ metadata:
   labels:
     app: some-prod-app
 spec:
-  replicas: 4
+  replicas: 0
   selector:
     matchLabels:
       app: some-prod-app
