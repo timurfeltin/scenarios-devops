@@ -13,7 +13,7 @@
       ]
     },
     "environment": {
-      "base_image": "ubuntu:20.04",
+      "base_image": "docker.io/library/ubuntu:20.04",
       "preload_scripts": [
         {
           "path": "/app/app.py",
