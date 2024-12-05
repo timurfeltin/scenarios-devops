@@ -1,106 +1,63 @@
 {
-    "title": "Docker Challenge for DevOps Engineers",
-    "description": "Test your Docker skills by completing tasks like building Dockerfiles, configuring Docker Compose, and debugging containers.",
-    "details": {
-      "intro": {
-        "text": "Welcome to the Docker Challenge! You'll work on deploying a multi-container Flask web application using Docker Compose. Complete the tasks below to showcase your DevOps expertise.",
-        "tasks": [
-          "Complete the Dockerfile for the Flask app.",
-          "Fix errors in the docker-compose.yml file.",
-          "Troubleshoot and fix a failing NGINX container.",
-          "Optimize the Dockerfile for performance.",
-          "Verify the application is running as expected."
-        ]
-      },
-      "environment": {
-        "base_image": "ubuntu:20.04",
-        "preload_scripts": [
-          {
-            "path": "/app/app.py",
-            "content": """
-              from flask import Flask, jsonify
-              app = Flask(__name__)
-  
-              @app.route('/')
-              def home():
-                  return jsonify({"message": "Welcome to the Docker Challenge!"})
-  
-              if __name__ == '__main__':
-                  app.run(host='0.0.0.0', port=5000)
-            """
-          },
-          {
-            "path": "/app/requirements.txt",
-            "content": "Flask==2.1.0"
-          },
-          {
-            "path": "/app/Dockerfile",
-            "content": """
-              # Incomplete Dockerfile for Flask app
-              FROM python:3.9-slim
-              COPY requirements.txt /app/requirements.txt
-              WORKDIR /app
-              RUN pip install -r requirements.txt
-              # TODO: Add command to run the application
-            """
-          },
-          {
-            "path": "/app/docker-compose.yml",
-            "content": """
-              version: '3.8'
-              services:
-                app:
-                  build: .
-                  ports:
-                    - \"5000:5000\"
-                nginx:
-                  image: nginx:latest
-                  ports:
-                    - \"80:80\"
-                  volumes:
-                    - ./nginx.conf:/etc/nginx/nginx.conf
-                  depends_on:
-                    - app
-            """
-          },
-          {
-            "path": "/app/nginx.conf",
-            "content": """
-              events {}
-              http {
-                  server {
-                      listen 80;
-                      location / {
-                          proxy_pass http://app:5000;
-                      }
-                  }
-              }
-            """
-          }
-        ]
-      },
+  "title": "Docker Challenge for DevOps Engineers",
+  "description": "Test your Docker skills by completing tasks like building Dockerfiles, configuring Docker Compose, and debugging containers.",
+  "details": {
+    "intro": {
+      "text": "Welcome to the Docker Challenge! You'll work on deploying a multi-container Flask web application using Docker Compose. Complete the tasks below to showcase your DevOps expertise.",
       "tasks": [
+        "Complete the Dockerfile for the Flask app.",
+        "Fix errors in the docker-compose.yml file.",
+        "Troubleshoot and fix a failing NGINX container.",
+        "Optimize the Dockerfile for performance.",
+        "Verify the application is running as expected."
+      ]
+    },
+    "environment": {
+      "base_image": "ubuntu:20.04",
+      "preload_scripts": [
         {
-          "title": "Complete the Dockerfile",
-          "description": "Add the necessary steps to the Dockerfile to set up and run the Flask application."
+          "path": "/app/app.py",
+          "content": "from flask import Flask, jsonify\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return jsonify({\"message\": \"Welcome to the Docker Challenge!\"})\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5000)"
         },
         {
-          "title": "Fix the Docker Compose File",
-          "description": "Resolve syntax errors and misconfigurations in the docker-compose.yml file."
+          "path": "/app/requirements.txt",
+          "content": "Flask==2.1.0"
         },
         {
-          "title": "Debug the Failing NGINX Container",
-          "description": "Use Docker logs and inspect commands to identify and fix the issue with the NGINX container."
+          "path": "/app/Dockerfile",
+          "content": "# Incomplete Dockerfile for Flask app\nFROM python:3.9-slim\nCOPY requirements.txt /app/requirements.txt\nWORKDIR /app\nRUN pip install -r requirements.txt\n# TODO: Add command to run the application"
         },
         {
-          "title": "Optimize the Dockerfile",
-          "description": "Analyze and modify the Dockerfile to improve image size and build efficiency."
+          "path": "/app/docker-compose.yml",
+          "content": "version: '3.8'\nservices:\n  app:\n    build: .\n    ports:\n      - \"5000:5000\"\n  nginx:\n    image: nginx:latest\n    ports:\n      - \"80:80\"\n    volumes:\n      - ./nginx.conf:/etc/nginx/nginx.conf\n    depends_on:\n      - app"
         },
         {
-          "title": "Verify the Application",
-          "description": "Test the application to ensure it is accessible at http://localhost."
+          "path": "/app/nginx.conf",
+          "content": "events {}\nhttp {\n    server {\n        listen 80;\n        location / {\n            proxy_pass http://app:5000;\n        }\n    }\n}"
         }
       ]
-    }
+    },
+    "tasks": [
+      {
+        "title": "Complete the Dockerfile",
+        "description": "Add the necessary steps to the Dockerfile to set up and run the Flask application."
+      },
+      {
+        "title": "Fix the Docker Compose File",
+        "description": "Resolve syntax errors and misconfigurations in the docker-compose.yml file."
+      },
+      {
+        "title": "Debug the Failing NGINX Container",
+        "description": "Use Docker logs and inspect commands to identify and fix the issue with the NGINX container."
+      },
+      {
+        "title": "Optimize the Dockerfile",
+        "description": "Analyze and modify the Dockerfile to improve image size and build efficiency."
+      },
+      {
+        "title": "Verify the Application",
+        "description": "Test the application to ensure it is accessible at http://localhost."
+      }
+    ]
   }
-  
+}
